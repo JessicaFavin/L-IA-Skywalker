@@ -11,6 +11,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 /**
  *
@@ -18,18 +23,38 @@ import javafx.scene.control.Label;
  */
 public class FXMLDocumentController implements Initializable {
     
-    @FXML
     private Label label;
-    
     @FXML
+    private Label l_sentence;
+    @FXML
+    private TextField tf_question;
+    @FXML
+    private TextArea ta_answer;
+    
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void handleQuestionAction(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER && !tf_question.getText().isEmpty()) {
+            String str = tf_question.getText();
+            str = str.replaceAll(" ", "_");
+            ta_answer.appendText("Me >> "+str+"\n");
+            //ta_answer.appendText(">> IA: Hummmmmmmm, 42.\n");
+            tf_question.setText("");
+            ta_answer.appendText("IA >> "+GetURLContent.getContentFromJson(str)+"\n");
+            
+            ta_answer.appendText("-------------------------------------------------------------------------------\n");
+        }
+        
+    }
+
+ 
     
 }
