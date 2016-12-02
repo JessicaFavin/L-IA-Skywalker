@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="l.ia.skywalker.FXMLDocumentController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="l.ia.skywalker.FXMLDocumentController">
    <bottom>
       <TextField fx:id="tf_question" onKeyPressed="#handleQuestionAction" promptText="QUELLE EST VOTRE QUESTION ?" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -35,9 +36,9 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </ImageView>
-            <Label fx:id="l_sentence" text="Bonjour ! Je suis votre IA. Quelle est votre question ?" textAlignment="CENTER">
+            <Label fx:id="l_sentence" text="Quelle est votre question ?" textAlignment="CENTER">
                <HBox.margin>
-                  <Insets top="40.0" />
+                  <Insets left="10.0" top="125.0" />
                </HBox.margin>
                <font>
                   <Font name="System Bold" size="12.0" />

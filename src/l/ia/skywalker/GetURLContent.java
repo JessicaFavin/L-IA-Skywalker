@@ -56,8 +56,8 @@ public class GetURLContent {
                     }
                     str = json.getJSONObject("query").getJSONObject("pages").getJSONObject(id).getString("extract");
                 return str;
-                } catch (JSONException ex) {
-                Logger.getLogger(GetURLContent.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    System.out.println("Recherche vide.");
             }            
 
         } catch (MalformedURLException e) {
