@@ -25,33 +25,25 @@ public class GetURLContent {
     public static String getContentFromJson(String word) {
         URL url;
         try {
-            // get URL content
+
             url = new URL("https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + word);
             URLConnection conn = url.openConnection();
 
-            // open the stream and put it into BufferedReader
+            
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
             String inputLine;
             String result="";
       
             while ((inputLine = br.readLine()) != null) {
-                //bw.write(inputLine);
                 result+=inputLine;
-            }
-            
+            }          
             JSONObject json;
             try {
                 String str ="";
-                json = new JSONObject(result);
-                
-                //JSONArray genreArray = (JSONArray) json.get("query");
-        // get the first genre
-                //JSONObject firstGenre = (JSONObject) genreArray.get(1);
+                json = new JSONObject(result);          
                 str = json.getJSONObject("query").getJSONObject("pages").toString();
-                //getJSONObject("extract")
-                //String str = json.getString("query");
-                
+               
                     HashMap<String, String> map = new HashMap<String, String>();
                     JSONObject jObject = new JSONObject(str);
                     Iterator<?> keys = jObject.keys();
@@ -64,19 +56,6 @@ public class GetURLContent {
                     }
                     str = json.getJSONObject("query").getJSONObject("pages").getJSONObject(id).getString("extract");
                 return str;
-                //JSONObject object = new JSONObject(myJSONString);
-                //String[] keys = JSONObject.getNames(json);
-                
-                
-/*
-                for (String key : keys){
-                    Object value = json.get(key);
-                    System.out.println(key);
-                    // Determine type of value and do something with it...
-                }
-                */
-                
-                //return str;
                 } catch (JSONException ex) {
                 Logger.getLogger(GetURLContent.class.getName()).log(Level.SEVERE, null, ex);
             }            
